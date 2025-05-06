@@ -26,6 +26,15 @@ class MainActivity : AppCompatActivity() {
 
         buttonCalcular.setOnClickListener {
             val intent = Intent(this, ResultadoActivity::class.java)
+
+            val peso = editPeso.text.toString()
+            val altura = editAltura.text.toString()
+
+            if (peso.isNotEmpty() && altura.isNotEmpty()) {
+                intent.putExtra("peso", peso.toDouble())
+                intent.putExtra("altura", altura.toDouble())
+            }
+
             startActivity(intent)
         }
 
